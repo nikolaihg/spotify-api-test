@@ -44,6 +44,9 @@ def search_artist(artist_name):
         print("Artist name:", artist['name'])
         print("Followers:", artist['followers']['total'])
         print("Genres:", artist['genres'])
+        print("Popularity:", artist["popularity"])
+        print("id:", artist["id"])
+        print("uri", artist["uri"])
     except spotipy.exceptions.SpotifyException as e:
         print(f"Spotify API error: {e}")
 
