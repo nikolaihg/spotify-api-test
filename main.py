@@ -25,24 +25,19 @@ def get_artist():
     pass
 
 def get_track():
-    try:
-        track = sp.track("nonexistent_id")
-    except spotipy.exceptions.SpotifyException as e:
-        print("Spotify API error:", e)
-
+    pass
 
 def get_album():
     pass
 
-track_id = "3n3Ppam7vgaVa1iaRUc9Lp"  # Replace with a Spotify track ID
-track = sp.track(track_id)
-print("Track name:", track['name'])
-print("Artist:", track['artists'][0]['name'])
-print("Album:", track['album']['name'])
+def search_artist(artist_name):
+    try:
+        results = sp.search(q=artist_name, type="artist", limit=1)
+        artist = results['artists']['items'][0]
+        print("Artist name:", artist['name'])
+        print("Followers:", artist['followers']['total'])
+        print("Genres:", artist['genres'])
+    except spotipy.exceptions.SpotifyException as e:
+        print(f"Spotify API error: {e}")
 
-artist_name = "Radiohead"
-results = sp.search(q=artist_name, type="artist", limit=1)
-artist = results['artists']['items'][0]
-print("Artist name:", artist['name'])
-print("Followers:", artist['followers']['total'])
-print("Genres:", artist['genres'])
+search_artist("Radiohead")

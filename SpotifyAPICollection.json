@@ -1,0 +1,103 @@
+{
+    "info": {
+      "name": "Spotify API",
+      "description": "Collection for Spotify API authentication and requests",
+      "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+      {
+        "name": "Get Access Token",
+        "request": {
+          "method": "POST",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/x-www-form-urlencoded"
+            }
+          ],
+          "body": {
+            "mode": "urlencoded",
+            "urlencoded": [
+              {
+                "key": "grant_type",
+                "value": "client_credentials"
+              },
+              {
+                "key": "client_id",
+                "value": "{{client_id}}"
+              },
+              {
+                "key": "client_secret",
+                "value": "{{client_secret}}"
+              }
+            ]
+          },
+          "url": {
+            "raw": "https://accounts.spotify.com/api/token",
+            "protocol": "https",
+            "host": ["accounts", "spotify", "com"],
+            "path": ["api", "token"]
+          }
+        }
+      },
+      {
+        "name": "Get Track",
+        "request": {
+          "method": "GET",
+          "header": [
+            {
+              "key": "Authorization",
+              "value": "Bearer {{access_token}}",
+              "type": "text"
+            }
+          ],
+          "url": {
+            "raw": "https://api.spotify.com/v1/tracks/{{track_id}}",
+            "protocol": "https",
+            "host": ["api", "spotify", "com"],
+            "path": ["v1", "tracks", "{{track_id}}"]
+          }
+        }
+      },
+      {
+        "name": "Get Artist",
+        "request": {
+          "method": "GET",
+          "header": [
+            {
+              "key": "Authorization",
+              "value": "Bearer {{access_token}}",
+              "type": "text"
+            }
+          ],
+          "url": {
+            "raw": "https://api.spotify.com/v1/artists/{{artist_id}}",
+            "protocol": "https",
+            "host": ["api", "spotify", "com"],
+            "path": ["v1", "artists", "{{artist_id}}"]
+          }
+        }
+      },
+      {
+        "name": "Get Album",
+        "request": {
+          "method": "GET",
+          "header": [
+            {
+              "key": "Authorization",
+              "value": "Bearer {{access_token}}",
+              "type": "text"
+            }
+          ],
+          "url": {
+            "raw": "https://api.spotify.com/v1/albums/{{album_id}}",
+            "protocol": "https",
+            "host": ["api", "spotify", "com"],
+            "path": ["v1", "albums", "{{album_id}}"]
+          }
+        }
+      }
+    ]
+  }
+
+  
