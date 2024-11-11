@@ -1,5 +1,7 @@
 Analyse av arrangementsresultat 2024.xlsx
 
+.cache
+
 .env
 .venv
 env/
